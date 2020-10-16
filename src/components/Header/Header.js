@@ -28,7 +28,7 @@ const Header = () => {
                     <Nav.Link onClick={() => routeTo('/')}>Home</Nav.Link>
 
                     {
-                        user ?
+                        user && user.user  ?
                         <>
                         <Nav.Link>Hey, {user.user.fullName}</Nav.Link>
                         <Nav.Link onClick={() => routeTo('/add-product')}>Add product</Nav.Link>

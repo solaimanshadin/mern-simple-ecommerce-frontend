@@ -14,9 +14,9 @@ const AddProduct = () => {
             setFromData({})
             history.push('/')
         })
-        .catch(err=> console.log(err))
+        .catch(err=> setFromData({...formData, errors : err.response.data }))
     }
-
+    console.log(formData.errors);
     const handleChange = (e) => {
         setFromData({...formData, [e.target.name] : e.target.value})
     }
@@ -30,18 +30,25 @@ const AddProduct = () => {
             <Form.Group controlId="exampleForm.ControlInput1">
                 <Form.Label>Product name </Form.Label>
                 <Form.Control onBlur={e=>handleChange(e)} name="name" type="text" placeholder="Product Name" />
+                <span className="text-danger">{formData.errors && formData.errors.name}</span>
             </Form.Group>
             <Form.Group controlId="exampleForm.ControlInput1">
                 <Form.Label>Product Description </Form.Label>
-                <Form.Control onBlur={e=>handleChange(e)} name="description" type="text" placeholder="Product Description" />
+                <Form.Control as="textarea" row="2" onBlur={e=>handleChange(e)} name="description" type="text" placeholder="Product Description" />
+                <span className="text-danger">{formData.errors && formData.errors.description}</span>
+
             </Form.Group>
             <Form.Group controlId="exampleForm.ControlInput1">
                 <Form.Label>Product Image (URL) </Form.Label>
                 <Form.Control onBlur={e=>handleChange(e)} name="productImage" type="text" placeholder="Product Image (URL)" />
+                <span className="text-danger">{formData.errors && formData.errors.productImage}</span>
+
             </Form.Group>
             <Form.Group controlId="exampleForm.ControlInput1">
                 <Form.Label>Price </Form.Label>
                 <Form.Control onBlur={e=>handleChange(e)} name="price" type="number" placeholder="Price" />
+                <span className="text-danger">{formData.errors && formData.errors.price}</span>
+                
             </Form.Group>
 
             <Form.Group controlId="exampleForm.ControlInput1" className="mt-4">

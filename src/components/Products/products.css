@@ -1,6 +1,6 @@
 .products .card-deck{
     display: grid !important;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .products .card-deck .card{

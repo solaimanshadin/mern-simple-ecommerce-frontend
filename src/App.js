@@ -5,6 +5,7 @@ import './App.css';
 import AddProduct from './components/AddProduct/AddProduct';
 import Header from './components/Header/Header';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import ProductDetails from './components/ProductDetails/ProductDetails';
 import Products from './components/Products/Products';
 import SignUpOrLogin from './components/SignUpOrLogin/SignUpOrLogin';
 import { userData } from './dataService/authService';
@@ -39,6 +40,9 @@ function App() {
           <PrivateRoute path="/add-product">
             <AddProduct />
           </PrivateRoute>
+          <Route path="/product/:id">
+            <ProductDetails />
+          </Route>
         </Switch>
       </Router>
   );

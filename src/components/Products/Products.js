@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Card, CardDeck } from 'react-bootstrap';
+import { Button, Card, CardDeck } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { getProducts } from '../../dataService/productService';
 import './products.css'
 const Products = () => {
@@ -18,16 +19,16 @@ const Products = () => {
             <CardDeck>
                 {
                     products.map((product) =>
-                        <Card>
-                            <Card.Img variant="top" src="https://via.placeholder.com/150" />
+                        <Card className="text-center">
+                            <Card.Img variant="top" src={product.productImage} />
                             <Card.Body>
-                                <Card.Title>{product.name}</Card.Title>
-                                <Card.Text>
-                                    {product.description}
+                                <Card.Title className="h6">{product.name}</Card.Title>
+                                <Card.Text className="font-weight-bold">
+                                    $ {product.price}
                                 </Card.Text>
                             </Card.Body>
                             <Card.Footer>
-                                <small className="text-muted">Last updated 3 mins ago</small>
+                                <Link to={"/product/"+product._id} className="btn btn-primary"> View Details </Link>
                             </Card.Footer>
                         </Card>
                     )
